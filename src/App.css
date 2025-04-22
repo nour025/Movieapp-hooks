@@ -1,0 +1,115 @@
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App Container */
+body, html {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #150138, #16023e);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* Centered Heading */
+h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: rgba(198, 150, 245, 0.61);
+  margin: 30px 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Filter Form Section */
+.filter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #1b0a36;
+  padding: 20px;
+  margin: 0 auto 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgb(204, 168, 235);
+  width: 90%;
+  max-width: 900px;
+}
+
+/* Search Input and Rating Select */
+
+.filter-form input[type="text"],
+.filter-form select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  width: 220px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  background-color: #2e0732;
+  
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+  outline: none;
+  border-color: #f6f6f6;
+  background-color: #fff;
+}
+
+/* Add Movie Form */
+.add-movie-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #160728;
+  padding: 15px;
+  margin:auto;
+  margin-bottom:70px;
+  margin-top: 70px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(200, 130, 227, 0.801);
+}
+
+/* Inputs inside the add form */
+.add-movie-form input,
+.add-movie-form textarea {
+  padding: 12px 17px;
+  font-size: 1rem;
+  border: 2px solid #260329;
+  border-radius: 10px;
+  background-color: #2a0a3d;
+  transition: border-color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add-movie-form input:focus,
+.add-movie-form textarea:focus {
+  border-color: #260839;
+  background-color: #1e0425;
+  outline: none;
+}
+
+/* Add Movie Button */
+.add-movie-form button {
+  align-self: flex-end;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #1a0329, #320a46);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.add-movie-form button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #05000e, #21013e);
+}
