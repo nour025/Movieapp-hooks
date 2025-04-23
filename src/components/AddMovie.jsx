@@ -1,55 +1,69 @@
 import React, { useState } from "react";
 
-const AddMovie = ({ handleAddMovie }) => {
+const AddMovie = ({ onAdd }) => {
   const [newMovie, setNewMovie] = useState({
     title: "",
     description: "",
     posterURL: "",
-    rating: 0,
+    rating: "",
   });
 
   const handleChange = (e) => {
-    setNewMovie({
-      ...newMovie,
-      [e.target.name]: e.target.name === "rating" ? Number(e.target.value) : e.target.value,
-    });
+    const { name, value } = e.target;
+    setNewMovie((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddMovie(newMovie);
-    setNewMovie({ title: "", description: "", posterURL: "", rating: 0 });
+
+    if (
+      !newMovie.title.trim() ||
+      !newMovie.description.trim() ||
+      !newMovie.posterURL.trim() ||
+      !newMovie.rating.trim()
+    ) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    onAdd({ ...newMovie, id: Date.now() }); // Adds a unique ID
+    setNewMovie({ title: "", description: "", posterURL: "", rating: "" });
   };
 
   return (
-    <form className="add-movie-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-movie-form">
       <input
-        name="title"
         type="text"
-        placeholder="Movie title"
+        name="title"
+        placeholder="Movie Title"
         value={newMovie.title}
         onChange={handleChange}
       />
       <textarea
         name="description"
-        placeholder="Movie description"
+        placeholder="Movie Description"
         value={newMovie.description}
         onChange={handleChange}
-      ></textarea>
+        rows={4}
+      />
       <input
-        name="posterURL"
         type="text"
-        placeholder="Image URL"
+        name="posterURL"
+        placeholder="Poster Image URL"
         value={newMovie.posterURL}
         onChange={handleChange}
       />
       <input
-        placeholder="rating from 0 to 5"
         type="number"
-        min="0"
-        max="5"
+        name="rating"
+        placeholder="Rating (1-10)"
         value={newMovie.rating}
         onChange={handleChange}
+        min="1"
+        max="10"
       />
       <button type="submit">Add Movie</button>
     </form>
@@ -57,4 +71,3 @@ const AddMovie = ({ handleAddMovie }) => {
 };
 
 export default AddMovie;
-

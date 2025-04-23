@@ -1,17 +1,10 @@
-// components/MovieList.js
 import React from "react";
 import MovieCard from "./MovieCard";
+import "./MovieList.css";
 
 const MovieList = ({ movies }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gap: "20px",
-      }}
-    >
+    <div className="movie-list">
       {movies.map((movie, index) => (
         <MovieCard key={index} movie={movie} />
       ))}
